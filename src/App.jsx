@@ -25,7 +25,6 @@ function App() {
           <ul>
             <li>{featuredPup.age}</li>
             <li>{featuredPup.email}</li>
-            
           </ul>
         </div>
       )}

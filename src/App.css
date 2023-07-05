@@ -45,3 +45,11 @@ body{
   background-color: darkblue
 }
 
+li{
+  margin: 1rem;
+}
+.puppy-id {
+  font-size: large;
+  font-weight: bold;
+}
+
