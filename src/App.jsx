@@ -1,18 +1,35 @@
-function App() {
-  const [count, setCount] = useState(0);
+import React, { useState } from "react";
+import "./App.css";
+import { puppyList } from "./data.js";
 
+function App() {
+  const [puppies, setPuppies] = useState(puppyList);
+  const [featPupId, setFeatPupId] = useState(null);
+
+  function handleFeatPupClick(id) {
+    setFeatPupId(id);
+  }
+
+  const featuredPup = puppies.find((pup) => pup.id === featPupId);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-    </>
+    <div className="App">
+      {puppies.map((puppy) => (
+        <p key={puppy.id} onClick={() => handleFeatPupClick(puppy.id)}>
+          {puppy.name}
+        </p>
+      ))}
+
+      {featuredPup && (
+        <div>
+          <h2>{featuredPup.name}</h2>
+          <ul>
+            <li>{featuredPup.age}</li>
+            <li>{featuredPup.email}</li>
+            
+          </ul>
+        </div>
+      )}
+    </div>
   );
 }
 
